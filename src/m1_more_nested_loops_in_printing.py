@@ -3,8 +3,8 @@ This project demonstrates NESTED LOOPS (i.e., loops within loops)
 in the context of PRINTING on the CONSOLE.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Garrett Sanders.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -54,8 +54,14 @@ def triangle_right_justified(r):
     Precondition:  r is a non-negative integer.
     For purposes of "lining up", assume r is a single digit.
     """
+    for k in range(r):
+        for s in range(r - k):
+            print(' ', end='')
+        for i in range(k + 1):
+            print(i + 1, end='')
+        print()
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # HINT: Do the following problem FIRST, then convert x's to spaces:
@@ -108,8 +114,14 @@ def triangle_upside_down(r):
     Precondition:  r is a non-negative integer.
     For purposes of "lining up", assume r is a single digit.
     """
+    for k in range(r):
+        for s in range(k):
+            print(' ', end='')
+        for i in range(r - k):
+            print(i + 1, end='')
+        print()
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
@@ -159,8 +171,17 @@ def vee(r):
     Precondition:  r is a non-negative integer.
     For purposes of "lining up", assume r is a single digit.
     """
+    for k in range(r):
+        for d in range(k):
+            print(' ', end='')
+        for s in range(r - k):
+            print(s + 1, end='')
+        print('-', end='')
+        for i in range(r - k, 0, -1):
+            print(i, end='')
+        print()
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
@@ -215,8 +236,14 @@ def numbers_constant_forward(r, maxnum, n):
 
     Preconditions:  r, maxnum and n are positive integers.
     """
+    for k in range(r):
+        for i in range(maxnum):
+            for s in range(n):
+                print(i + 1, end='')
+            print(' ', end='')
+        print()
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # HINT: What loop structure do you need for this problem?
@@ -259,8 +286,14 @@ def numbers_constant_backwards(r, maxnum, n):
        777 666 555 444 333 222 111
     Preconditions:  r, maxnum and n are positive integers.
     """
+    for k in range(r):
+        for i in range(maxnum - 1, -1, -1):
+            for s in range(n):
+                print(i + 1, end='')
+            print(' ', end='')
+        print()
     # ------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # DONE: 6. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
@@ -311,8 +344,14 @@ def numbers_increasing_forward(r, maxnum):
 
     Preconditions:  r and maxnum are positive integers.
     """
+    for k in range(r):
+        for i in range(maxnum):
+            for s in range(i + 1):
+                print(i + 1, end='')
+            print(' ', end='')
+        print()
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # DONE: 7. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
