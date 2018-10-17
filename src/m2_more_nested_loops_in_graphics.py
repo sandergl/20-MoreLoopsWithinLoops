@@ -66,7 +66,7 @@ def draw_upside_down_wall(rectangle, n, window):
         c1.y = c1.y - h
         c2.y = c2.y - h
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     Some tests are already written for you (above).
     # ------------------------------------------------------------------
 
