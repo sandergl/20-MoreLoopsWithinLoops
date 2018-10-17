@@ -76,14 +76,19 @@ def largest_number(seq_seq):
     and the given argument is a sequence of sequences,
     where each subsequence contains only numbers.
     """
-    #for k in range(len(seq_seq)):
-    #    for i in range(len(seq_seq[k])):
-    #        if seq_seq[k][i] > big:
-    #            big = seq_seq[k][i]
-    #return big
+    big = None
+    for k in range(len(seq_seq)):
+        if len(seq_seq[k]) == 1:
+            big = seq_seq[k][0]
+        else:
+            for i in range(len(seq_seq[k]) - 1):
+                x = seq_seq[k][i]
+                if x > seq_seq[k][i + 1]:
+                    big = x
+    return big
 
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
 
@@ -91,7 +96,7 @@ def largest_number(seq_seq):
 def run_test_largest_negative_number():
     """ Tests the    largest_negative_number    function. """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement this TEST function.
+    # DONE: 4. Implement this TEST function.
     #   It TESTS the  largest_negative_number  function defined below.
     #
     #   Include enough tests to give you confidence that your solution
@@ -101,6 +106,30 @@ def run_test_largest_negative_number():
     print('-------------------------------------------------')
     print('Testing the   LARGEST_NEGATIVE_NUMBER   function:')
     print('-------------------------------------------------')
+
+    # Test 1:
+    expected = -4
+    actual = largest_negative_number([[1, 1, 1, 1, 1, 1, 0], [-1, -2, -2, -3, -4]])
+    print('Expected: ', expected)
+    print('Actual: ', actual)
+
+    # Test 2:
+    expected = 'None'
+    actual = largest_negative_number([])
+    print('Expected: ', expected)
+    print('Actual: ', actual)
+
+    # Test 3:
+    expected = -25
+    actual = largest_negative_number([[-4], [4], (16, ), [], (-25, )])
+    print('Expected: ', expected)
+    print('Actual: ', actual)
+
+    # Test 4:
+    expected = -55
+    actual = largest_negative_number([(-55, -5, -25), [-50, -40, 0, 22]])
+    print('Expected: ', expected)
+    print('Actual: ', actual)
 
 
 def largest_negative_number(seq_seq):
@@ -125,8 +154,18 @@ def largest_negative_number(seq_seq):
     and the given argument is a sequence of sequences,
     where each subsequence contains only numbers.
     """
+    x = 0
+    for k in range(len(seq_seq)):
+        for i in range(len(seq_seq[k])):
+            if seq_seq[k][i] < 0:
+                if seq_seq[k][i] < x:
+                    x = seq_seq[k][i]
+    if x == 0:
+        return None
+    else:
+        return x
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     # CHALLENGE: Try to solve this problem with no additional sequences
@@ -367,14 +406,14 @@ def first_is_elsewhere_too(seq_seq):
     """
     if len((seq_seq[0])) == 0:
         return False
-    test = seq_seq[0][0]
-    for k in range(len(seq_seq)):
-        for i in range(len(seq_seq[k])):
-            if seq_seq[k][i] == test:
-                return True
+    for k in range(1, len(seq_seq)):
+        for s in range(len(seq_seq[k])):
+            for f in range(len(seq_seq[0])):
+                if seq_seq[k][s] == seq_seq[0][f]:
+                    return True
     return False
     # ------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # DONE: 6. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
